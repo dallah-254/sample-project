@@ -178,14 +178,24 @@ class HeaderManager {
     }
 
     getUserSection() {
-        const name = this.currentUser?.name?.split(' ')[0] || this.currentUser?.firstName || 'User';
+        // Extract user's first name from the stored user data
+        let firstName = '';
+        if (this.currentUser?.name) {
+            // Split the full name and take the first part
+            firstName = this.currentUser.name.split(' ')[0];
+        } else if (this.currentUser?.firstName) {
+            firstName = this.currentUser.firstName;
+        } else {
+            firstName = 'User';
+        }
+        
         const fullName = this.currentUser?.name || 'User Account';
         
         return `
             <div class="user-section">
                 <button class="user-action" title="Account">
                     <i class="fas fa-user-circle"></i>
-                    <span class="user-name">${name}</span>
+                    <span class="user-name">${firstName}</span>
                 </button>
                 <div class="user-dropdown">
                     <div class="user-dropdown-header">
@@ -235,11 +245,17 @@ class HeaderManager {
         const name = this.currentUser?.name || 'User';
         const email = this.currentUser?.email || '';
         
+        // Extract first name for mobile view if needed
+        let firstName = name;
+        if (name.includes(' ')) {
+            firstName = name.split(' ')[0];
+        }
+        
         return `
             <div class="mobile-user-info">
                 <i class="fas fa-user-circle"></i>
                 <div>
-                    <p class="user-name">${name}</p>
+                    <p class="user-name">${firstName}</p>
                     <p class="user-email">${email}</p>
                 </div>
             </div>
@@ -525,13 +541,17 @@ class HeaderManager {
         document.dispatchEvent(new CustomEvent('openCart'));
     }
 
-    // Updated login method to work with auth.html format
+    // Updated login method to properly capture user's name from auth system
     login(userData, tokenData) {
         this.isLoggedIn = true;
         
         // Extract user info from token or userData
         if (typeof userData === 'object') {
-            this.currentUser = userData;
+            this.currentUser = {
+                name: userData.name || 'User',
+                email: userData.email || '',
+                firstName: userData.firstName || (userData.name ? userData.name.split(' ')[0] : 'User')
+            };
         } else if (tokenData) {
             // Try to extract user info from token
             try {
@@ -539,14 +559,13 @@ class HeaderManager {
                 this.currentUser = {
                     name: payload.name || payload.given_name || 'User',
                     email: payload.email || '',
-                    firstName: payload.given_name || '',
-                    lastName: payload.family_name || ''
+                    firstName: payload.given_name || (payload.name ? payload.name.split(' ')[0] : 'User')
                 };
             } catch (e) {
-                this.currentUser = { name: 'User', email: '' };
+                this.currentUser = { name: 'User', email: '', firstName: 'User' };
             }
         } else {
-            this.currentUser = { name: 'User', email: '' };
+            this.currentUser = { name: 'User', email: '', firstName: 'User' };
         }
 
         // Store in localStorage (matching auth.html format)
@@ -560,7 +579,7 @@ class HeaderManager {
         localStorage.setItem('lighthub_user', JSON.stringify(this.currentUser));
 
         this.refreshHeader();
-        this.showNotification(`Welcome back, ${this.currentUser.name?.split(' ')[0] || 'User'}!`);
+        this.showNotification(`Welcome back, ${this.currentUser.firstName || this.currentUser.name.split(' ')[0] || 'User'}!`);
     }
 
     logout() {
