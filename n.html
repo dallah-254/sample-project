@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Hub Customs | Where Vision Meets Precision</title>
+    <style>
+        :root {
+            --primary-white: #ffffff;
+            --electric-blue: #00d2ff;
+            --racing-red: #ff0000;
+            --deep-charcoal: #0b0e14;
+            --soft-gray: #f4f7f9;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-white);
+            color: var(--deep-charcoal);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: var(--primary-white);
+            border-bottom: 2px solid var(--soft-gray);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--deep-charcoal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span { color: var(--electric-blue); }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            min-height: 60vh;
+        }
+
+        .hero-content { max-width: 500px; }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background-color: var(--electric-blue);
+            color: var(--primary-white);
+            padding: 15px 35px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--deep-charcoal);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .services {
+            background-color: var(--soft-gray);
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 4px solid var(--electric-blue);
+            transition: 0.3s;
+        }
+
+        .card:hover { border-top-color: var(--racing-red); }
+
+        .card h3 { margin-top: 0; color: var(--electric-blue); }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-text">LIGHT HUB<span> CUSTOMS</span></div>
+        <div>
+            <button class="btn-primary" style="padding: 10px 20px;">Contact Us</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WHERE VISION MEETS <span style="color: var(--electric-blue);">PRECISION</span></h1>
+            <p>Premium custom automotive lighting and aesthetics for those who demand excellence on the road.</p>
+            <button class="btn-primary">View Our Work</button>
+        </div>
+        <div class="hero-image">
+            <div style="width: 400px; height: 300px; background: #eee; border-radius: 20px; display: grid; place-items: center; color: #999;">
+                [ High-Res Car Image ]
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Custom Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Custom Headlights</h3>
+                <p>High-intensity LED conversions and bespoke housing designs.</p>
+            </div>
+            <div class="card">
+                <h3>Ambient Glow</h3>
+                <p>Interior and under-glow kits tailored to your vehicle's lines.</p>
+            </div>
+            <div class="card">
+                <h3>Precision Mods</h3>
+                <p>Technical performance upgrades with a focus on visual clarity.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
