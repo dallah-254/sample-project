@@ -1,3 +1,4 @@
+// LightHub Customs Header - Integrated with Auth System
 class HeaderManager {
     constructor(containerId = 'header-container') {
         this.containerId = containerId;
@@ -88,9 +89,9 @@ class HeaderManager {
         return `
             <header class="light-header">
                 <div class="header-wrapper">
-                    <!-- Logo with image file -->
+                    <!-- Logo -->
                     <a href="/" class="header-logo">
-                        <img src="logo.png" alt="LightHub Customs" class="logo-image">
+                        <i class="fas fa-lightbulb"></i>
                         <span>LightHub</span>
                     </a>
 
@@ -130,7 +131,7 @@ class HeaderManager {
                     <div class="mobile-menu">
                         <div class="mobile-menu-header">
                             <div class="mobile-logo">
-                                <img src="logo.png" alt="LightHub Customs" class="mobile-logo-image">
+                                <i class="fas fa-lightbulb"></i>
                                 <span>LightHub</span>
                             </div>
                             <button class="mobile-close">
@@ -637,15 +638,16 @@ class HeaderManager {
 
     addStyles() {
         const styles = `
-            /* Header Base Styles - White background with blue accents */
+            /* Header Base Styles */
             .light-header {
-                background: #ffffff;
-                border-bottom: 2px solid #0a1428;
+                background: rgba(15, 23, 42, 0.98);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(255, 60, 0, 0.2);
                 position: fixed;
                 width: 100%;
                 top: 0;
                 z-index: 1000;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
             }
 
             .header-wrapper {
@@ -655,15 +657,16 @@ class HeaderManager {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                height: 70px;
+                height: 64px;
             }
 
-            /* Logo with image */
+            /* Logo */
             .header-logo {
                 display: flex;
                 align-items: center;
                 gap: 12px;
                 text-decoration: none;
+                color: white;
                 font-family: 'Rajdhani', sans-serif;
                 font-size: 24px;
                 font-weight: 700;
@@ -674,14 +677,9 @@ class HeaderManager {
                 transform: scale(1.05);
             }
 
-            .logo-image {
-                height: 40px;
-                width: auto;
-            }
-
-            .header-logo span {
-                color: #0a1428;
-                text-shadow: none;
+            .header-logo i {
+                color: #ff3c00;
+                font-size: 26px;
             }
 
             /* Desktop Navigation */
@@ -698,7 +696,7 @@ class HeaderManager {
             }
 
             .nav-link {
-                color: #1e293b;
+                color: #e2e8f0;
                 text-decoration: none;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 15px;
@@ -711,7 +709,7 @@ class HeaderManager {
 
             .nav-link:hover,
             .nav-link.active {
-                color: #2563eb;
+                color: #ff3c00;
             }
 
             .nav-link.active::after {
@@ -721,7 +719,7 @@ class HeaderManager {
                 left: 0;
                 width: 100%;
                 height: 2px;
-                background: linear-gradient(90deg, #1e3a8a, #60a5fa);
+                background: #ff3c00;
                 border-radius: 2px;
             }
 
@@ -739,17 +737,17 @@ class HeaderManager {
                 align-items: center;
                 justify-content: center;
                 border-radius: 10px;
-                background: #f1f5f9;
+                background: rgba(255, 255, 255, 0.05);
                 border: none;
-                color: #1e3a8a;
+                color: #cbd5e1;
                 cursor: pointer;
                 transition: all 0.2s;
                 position: relative;
             }
 
             .header-action:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
                 transform: translateY(-2px);
             }
 
@@ -757,7 +755,7 @@ class HeaderManager {
                 position: absolute;
                 top: -6px;
                 right: -6px;
-                background: linear-gradient(135deg, #1e3a8a, #2563eb);
+                background: #ff3c00;
                 color: white;
                 font-size: 11px;
                 font-weight: 700;
@@ -768,7 +766,6 @@ class HeaderManager {
                 align-items: center;
                 justify-content: center;
                 padding: 0 5px;
-                box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
             }
 
             /* Login Action */
@@ -779,15 +776,15 @@ class HeaderManager {
                 align-items: center;
                 justify-content: center;
                 border-radius: 10px;
-                background: #f1f5f9;
-                color: #1e3a8a;
+                background: rgba(255, 255, 255, 0.05);
+                color: #cbd5e1;
                 text-decoration: none;
                 transition: all 0.2s;
             }
 
             .login-action:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
                 transform: translateY(-2px);
             }
 
@@ -818,7 +815,7 @@ class HeaderManager {
                 justify-content: center;
                 align-items: center;
                 gap: 5px;
-                background: #f1f5f9;
+                background: rgba(255, 255, 255, 0.05);
                 border: none;
                 border-radius: 10px;
                 cursor: pointer;
@@ -833,13 +830,13 @@ class HeaderManager {
             .mobile-toggle span {
                 width: 20px;
                 height: 2px;
-                background: #1e3a8a;
+                background: #cbd5e1;
                 border-radius: 1px;
                 transition: all 0.3s;
             }
 
             .mobile-toggle:hover span {
-                background: #2563eb;
+                background: #ff3c00;
             }
 
             /* Mobile Menu */
@@ -849,13 +846,12 @@ class HeaderManager {
                 right: -320px;
                 width: 300px;
                 height: 100%;
-                background: #ffffff;
+                background: #0f172a;
                 z-index: 1001;
                 transition: right 0.3s ease;
                 display: flex;
                 flex-direction: column;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-                border-left: 1px solid #e2e8f0;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
             }
 
             .mobile-menu.open {
@@ -867,23 +863,21 @@ class HeaderManager {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                border-bottom: 1px solid #e2e8f0;
-                background: #f8fafc;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .mobile-logo {
                 display: flex;
                 align-items: center;
                 gap: 10px;
-                color: #0a1428;
+                color: white;
                 font-family: 'Rajdhani', sans-serif;
                 font-size: 20px;
                 font-weight: 700;
             }
 
-            .mobile-logo-image {
-                height: 32px;
-                width: auto;
+            .mobile-logo i {
+                color: #ff3c00;
             }
 
             .mobile-close {
@@ -892,17 +886,17 @@ class HeaderManager {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #f1f5f9;
+                background: rgba(255, 255, 255, 0.05);
                 border: none;
                 border-radius: 10px;
-                color: #1e3a8a;
+                color: #cbd5e1;
                 cursor: pointer;
                 transition: all 0.2s;
             }
 
             .mobile-close:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
             }
 
             .mobile-menu-content {
@@ -914,24 +908,24 @@ class HeaderManager {
             .mobile-link {
                 display: block;
                 padding: 16px 0;
-                color: #334155;
+                color: #cbd5e1;
                 text-decoration: none;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 16px;
                 font-weight: 500;
-                border-bottom: 1px solid #e2e8f0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
                 transition: color 0.2s;
             }
 
             .mobile-link:hover,
             .mobile-link.active {
-                color: #2563eb;
+                color: #ff3c00;
             }
 
             .mobile-auth {
                 margin-top: 30px;
                 padding-top: 20px;
-                border-top: 2px solid #e2e8f0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             /* Mobile User Info */
@@ -940,26 +934,25 @@ class HeaderManager {
                 align-items: center;
                 gap: 15px;
                 padding: 16px;
-                background: #f8fafc;
+                background: rgba(255, 255, 255, 0.05);
                 border-radius: 12px;
                 margin-bottom: 20px;
-                border: 1px solid #e2e8f0;
             }
 
             .mobile-user-info i {
                 font-size: 40px;
-                color: #1e3a8a;
+                color: #ff3c00;
             }
 
             .mobile-user-info .user-name {
-                color: #0a1428;
+                color: white;
                 font-weight: 600;
                 margin-bottom: 4px;
                 font-size: 16px;
             }
 
             .mobile-user-info .user-email {
-                color: #64748b;
+                color: #94a3b8;
                 font-size: 14px;
             }
 
@@ -974,9 +967,9 @@ class HeaderManager {
                 align-items: center;
                 gap: 12px;
                 padding: 14px 16px;
-                color: #334155;
+                color: #cbd5e1;
                 text-decoration: none;
-                background: #f8fafc;
+                background: rgba(255, 255, 255, 0.03);
                 border-radius: 10px;
                 border: none;
                 font-family: 'Montserrat', sans-serif;
@@ -986,23 +979,21 @@ class HeaderManager {
             }
 
             .mobile-user-link:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
                 transform: translateX(5px);
-                border-left: 3px solid #2563eb;
             }
 
             /* Mobile Login Section */
             .mobile-login-section {
                 text-align: center;
                 padding: 20px;
-                background: #f8fafc;
+                background: rgba(255, 255, 255, 0.05);
                 border-radius: 12px;
-                border: 1px solid #e2e8f0;
             }
 
             .mobile-login-section p {
-                color: #475569;
+                color: #cbd5e1;
                 margin-bottom: 16px;
                 font-size: 15px;
             }
@@ -1014,32 +1005,29 @@ class HeaderManager {
                 gap: 10px;
                 width: 100%;
                 padding: 14px;
-                background: linear-gradient(135deg, #1e3a8a, #2563eb);
-                color: white;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
                 text-decoration: none;
                 border-radius: 10px;
                 font-weight: 600;
                 margin-bottom: 12px;
                 transition: all 0.2s;
-                border: none;
             }
 
             .mobile-login-btn:hover {
-                background: linear-gradient(135deg, #2563eb, #3b82f6);
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+                background: rgba(255, 60, 0, 0.2);
             }
 
             .mobile-register-link {
                 display: block;
-                color: #64748b;
+                color: #94a3b8;
                 text-decoration: none;
                 font-size: 14px;
                 transition: color 0.2s;
             }
 
             .mobile-register-link:hover {
-                color: #2563eb;
+                color: #ff3c00;
             }
 
             /* Search Overlay */
@@ -1049,7 +1037,7 @@ class HeaderManager {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(255, 255, 255, 0.98);
+                background: rgba(0, 0, 0, 0.95);
                 z-index: 1002;
                 opacity: 0;
                 visibility: hidden;
@@ -1071,15 +1059,14 @@ class HeaderManager {
                 display: flex;
                 align-items: center;
                 gap: 16px;
-                background: #f8fafc;
+                background: rgba(255, 255, 255, 0.1);
                 border-radius: 12px;
                 padding: 16px 20px;
                 margin-bottom: 24px;
-                border: 1px solid #e2e8f0;
             }
 
             .search-box i {
-                color: #1e3a8a;
+                color: #94a3b8;
                 font-size: 20px;
             }
 
@@ -1087,7 +1074,7 @@ class HeaderManager {
                 flex: 1;
                 background: none;
                 border: none;
-                color: #0a1428;
+                color: white;
                 font-size: 16px;
                 font-family: 'Montserrat', sans-serif;
                 outline: none;
@@ -1103,21 +1090,21 @@ class HeaderManager {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #f1f5f9;
+                background: rgba(255, 255, 255, 0.05);
                 border: none;
                 border-radius: 10px;
-                color: #1e3a8a;
+                color: #cbd5e1;
                 cursor: pointer;
                 transition: all 0.2s;
             }
 
             .search-close:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
             }
 
             .search-suggestions {
-                color: #64748b;
+                color: #94a3b8;
                 font-size: 14px;
             }
 
@@ -1133,19 +1120,18 @@ class HeaderManager {
 
             .tag {
                 padding: 10px 18px;
-                background: #f1f5f9;
-                border: 1px solid #e2e8f0;
+                background: rgba(255, 255, 255, 0.05);
+                border: none;
                 border-radius: 20px;
-                color: #334155;
+                color: #cbd5e1;
                 font-size: 14px;
                 cursor: pointer;
                 transition: all 0.2s;
             }
 
             .tag:hover {
-                background: #dbeafe;
-                color: #2563eb;
-                border-color: #2563eb;
+                background: rgba(255, 60, 0, 0.2);
+                color: #ff3c00;
             }
 
             /* User Section */
@@ -1160,10 +1146,10 @@ class HeaderManager {
                 align-items: center;
                 justify-content: center;
                 gap: 8px;
-                background: #f1f5f9;
+                background: rgba(255, 255, 255, 0.05);
                 border: none;
                 border-radius: 10px;
-                color: #1e3a8a;
+                color: #cbd5e1;
                 cursor: pointer;
                 transition: all 0.2s;
                 font-family: 'Montserrat', sans-serif;
@@ -1171,8 +1157,8 @@ class HeaderManager {
             }
 
             .user-action:hover {
-                background: #dbeafe;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
             }
 
             .user-name {
@@ -1194,9 +1180,9 @@ class HeaderManager {
                 top: 100%;
                 right: 0;
                 width: 240px;
-                background: #ffffff;
+                background: #1e293b;
                 border-radius: 12px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
                 padding: 16px 0;
                 margin-top: 12px;
                 opacity: 0;
@@ -1204,7 +1190,7 @@ class HeaderManager {
                 transform: translateY(10px);
                 transition: all 0.2s;
                 z-index: 100;
-                border: 1px solid #e2e8f0;
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .user-dropdown.show {
@@ -1218,24 +1204,24 @@ class HeaderManager {
                 align-items: center;
                 gap: 12px;
                 padding: 0 20px 16px 20px;
-                border-bottom: 1px solid #e2e8f0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 margin-bottom: 12px;
             }
 
             .user-dropdown-header i {
                 font-size: 36px;
-                color: #1e3a8a;
+                color: #ff3c00;
             }
 
             .dropdown-user-name {
-                color: #0a1428;
+                color: white;
                 font-weight: 600;
                 font-size: 14px;
                 margin-bottom: 4px;
             }
 
             .dropdown-user-email {
-                color: #64748b;
+                color: #94a3b8;
                 font-size: 12px;
             }
 
@@ -1244,7 +1230,7 @@ class HeaderManager {
                 align-items: center;
                 gap: 12px;
                 padding: 12px 20px;
-                color: #334155;
+                color: #cbd5e1;
                 text-decoration: none;
                 font-size: 14px;
                 background: none;
@@ -1256,13 +1242,13 @@ class HeaderManager {
             }
 
             .dropdown-item:hover {
-                background: #f1f5f9;
-                color: #2563eb;
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
             }
 
             .dropdown-divider {
                 height: 1px;
-                background: #e2e8f0;
+                background: rgba(255, 255, 255, 0.1);
                 margin: 12px 0;
             }
 
@@ -1271,7 +1257,7 @@ class HeaderManager {
                 position: fixed;
                 top: 80px;
                 right: 24px;
-                background: linear-gradient(135deg, #1e3a8a, #2563eb);
+                background: linear-gradient(135deg, #ff3c00, #cc3000);
                 color: white;
                 padding: 14px 24px;
                 border-radius: 10px;
@@ -1281,8 +1267,7 @@ class HeaderManager {
                 z-index: 10000;
                 transform: translateX(150%);
                 transition: transform 0.3s;
-                box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
-                border: none;
+                box-shadow: 0 8px 25px rgba(255, 60, 0, 0.3);
             }
 
             .header-notification.show {
@@ -1293,15 +1278,15 @@ class HeaderManager {
             @media (max-width: 768px) {
                 .header-wrapper {
                     padding: 0 16px;
-                    height: 64px;
+                    height: 60px;
                 }
 
                 .header-logo {
                     font-size: 22px;
                 }
 
-                .logo-image {
-                    height: 34px;
+                .header-logo i {
+                    font-size: 24px;
                 }
 
                 .header-action,
