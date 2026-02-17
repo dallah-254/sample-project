@@ -126,7 +126,7 @@ class HeaderManager {
                         </button>
                     </div>
 
-                    <!-- Mobile Menu -->
+                    <!-- Mobile Menu - FIXED: Now properly shows all items -->
                     <div class="mobile-menu">
                         <div class="mobile-menu-header">
                             <div class="mobile-logo">
@@ -138,14 +138,98 @@ class HeaderManager {
                             </button>
                         </div>
                         <div class="mobile-menu-content">
-                            <a href="/" class="mobile-link" data-path="/">Home</a>
-                            <a href="/products" class="mobile-link" data-path="/products">Products</a>
-                            <a href="/categories" class="mobile-link" data-path="/categories">Categories</a>
-                            <a href="/custom" class="mobile-link" data-path="/custom">Custom Build</a>
-                            <a href="/support" class="mobile-link" data-path="/support">Support</a>
+                            <!-- Main Navigation Links -->
+                            <div class="mobile-nav-section">
+                                <h3 class="mobile-section-title">Navigation</h3>
+                                <a href="/" class="mobile-link" data-path="/">
+                                    <i class="fas fa-home"></i>
+                                    <span>Home</span>
+                                </a>
+                                <a href="/products" class="mobile-link" data-path="/products">
+                                    <i class="fas fa-box"></i>
+                                    <span>Products</span>
+                                </a>
+                                <a href="/categories" class="mobile-link" data-path="/categories">
+                                    <i class="fas fa-tags"></i>
+                                    <span>Categories</span>
+                                </a>
+                                <a href="/custom" class="mobile-link" data-path="/custom">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Custom Build</span>
+                                </a>
+                                <a href="/support" class="mobile-link" data-path="/support">
+                                    <i class="fas fa-headset"></i>
+                                    <span>Support</span>
+                                </a>
+                            </div>
+
+                            <!-- Featured Categories -->
+                            <div class="mobile-categories-section">
+                                <h3 class="mobile-section-title">Shop by Category</h3>
+                                <div class="mobile-category-grid">
+                                    <a href="/category/headlights" class="mobile-category-item">
+                                        <i class="fas fa-car"></i>
+                                        <span>Headlights</span>
+                                    </a>
+                                    <a href="/category/fog-lights" class="mobile-category-item">
+                                        <i class="fas fa-car-side"></i>
+                                        <span>Fog Lights</span>
+                                    </a>
+                                    <a href="/category/light-bars" class="mobile-category-item">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Light Bars</span>
+                                    </a>
+                                    <a href="/category/motorcycle" class="mobile-category-item">
+                                        <i class="fas fa-motorcycle"></i>
+                                        <span>Motorcycle</span>
+                                    </a>
+                                    <a href="/category/off-road" class="mobile-category-item">
+                                        <i class="fas fa-mountain"></i>
+                                        <span>Off-Road</span>
+                                    </a>
+                                    <a href="/category/accessories" class="mobile-category-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>Accessories</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="mobile-actions-section">
+                                <h3 class="mobile-section-title">Quick Actions</h3>
+                                <button class="mobile-action-item search-mobile-trigger">
+                                    <i class="fas fa-search"></i>
+                                    <span>Search Products</span>
+                                </button>
+                                <button class="mobile-action-item cart-mobile-trigger">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>View Cart</span>
+                                    <span class="mobile-cart-badge">0</span>
+                                </button>
+                            </div>
                             
-                            <div class="mobile-auth">
+                            <!-- Auth Section -->
+                            <div class="mobile-auth-section">
                                 ${this.isLoggedIn ? this.getMobileUserSection() : this.getMobileAuthSection()}
+                            </div>
+
+                            <!-- Contact Info -->
+                            <div class="mobile-contact-section">
+                                <h3 class="mobile-section-title">Get in Touch</h3>
+                                <a href="tel:+18005551234" class="mobile-contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>1-800-555-1234</span>
+                                </a>
+                                <a href="mailto:support@lighthub.com" class="mobile-contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>support@lighthub.com</span>
+                                </a>
+                                <div class="mobile-social-icons">
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -286,12 +370,12 @@ class HeaderManager {
     getMobileAuthSection() {
         return `
             <div class="mobile-login-section">
-                <p>Have an account?</p>
+                <p>Welcome to LightHub</p>
                 <a href="/auth.html" class="mobile-login-btn">
                     <i class="fas fa-sign-in-alt"></i>
                     <span>Sign In</span>
                 </a>
-                <a href="/auth.html" class="mobile-register-link">Create Account</a>
+                <a href="/auth.html?register=true" class="mobile-register-link">Create New Account</a>
             </div>
         `;
     }
@@ -314,7 +398,10 @@ class HeaderManager {
             loginAction: document.querySelector('.login-action'),
             navLinks: document.querySelectorAll('.nav-link'),
             mobileLinks: document.querySelectorAll('.mobile-link'),
-            suggestionTags: document.querySelectorAll('.tag')
+            suggestionTags: document.querySelectorAll('.tag'),
+            searchMobileTrigger: document.querySelector('.search-mobile-trigger'),
+            cartMobileTrigger: document.querySelector('.cart-mobile-trigger'),
+            mobileCartBadge: document.querySelector('.mobile-cart-badge')
         };
     }
 
@@ -331,8 +418,23 @@ class HeaderManager {
         if (this.elements.searchAction) {
             this.elements.searchAction.addEventListener('click', () => this.toggleSearch(true));
         }
+        if (this.elements.searchMobileTrigger) {
+            this.elements.searchMobileTrigger.addEventListener('click', () => {
+                this.toggleMobileMenu(false);
+                this.toggleSearch(true);
+            });
+        }
+
         if (this.elements.searchClose) {
             this.elements.searchClose.addEventListener('click', () => this.toggleSearch(false));
+        }
+
+        // Cart mobile trigger
+        if (this.elements.cartMobileTrigger) {
+            this.elements.cartMobileTrigger.addEventListener('click', () => {
+                this.toggleMobileMenu(false);
+                this.openCart();
+            });
         }
 
         // Profile dropdown
@@ -466,9 +568,17 @@ class HeaderManager {
     updateCartCount() {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
         const count = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        // Update desktop cart badge
         if (this.elements.cartBadge) {
             this.elements.cartBadge.textContent = count;
             this.elements.cartBadge.style.display = count > 0 ? 'flex' : 'none';
+        }
+        
+        // Update mobile cart badge
+        if (this.elements.mobileCartBadge) {
+            this.elements.mobileCartBadge.textContent = count;
+            this.elements.mobileCartBadge.style.display = count > 0 ? 'inline-block' : 'none';
         }
     }
 
@@ -657,6 +767,7 @@ class HeaderManager {
                 align-items: center;
                 justify-content: space-between;
                 height: 64px;
+                position: relative;
             }
 
             /* Logo */
@@ -838,19 +949,21 @@ class HeaderManager {
                 background: #ff3c00;
             }
 
-            /* Mobile Menu */
+            /* Mobile Menu - FIXED: Now properly shows all items */
             .mobile-menu {
                 position: fixed;
                 top: 0;
-                right: -320px;
-                width: 300px;
-                height: 100%;
+                right: -100%;
+                width: 100%;
+                max-width: 380px;
+                height: 100vh;
                 background: #0f172a;
                 z-index: 1001;
                 transition: right 0.3s ease;
                 display: flex;
                 flex-direction: column;
-                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+                overflow-y: auto;
             }
 
             .mobile-menu.open {
@@ -863,6 +976,10 @@ class HeaderManager {
                 align-items: center;
                 justify-content: space-between;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                background: #0f172a;
+                position: sticky;
+                top: 0;
+                z-index: 10;
             }
 
             .mobile-logo {
@@ -901,30 +1018,131 @@ class HeaderManager {
             .mobile-menu-content {
                 flex: 1;
                 overflow-y: auto;
-                padding: 20px;
+                padding: 20px 20px 40px;
+            }
+
+            .mobile-section-title {
+                color: #94a3b8;
+                font-size: 13px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin: 0 0 15px 0;
+                padding-bottom: 8px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-nav-section,
+            .mobile-categories-section,
+            .mobile-actions-section,
+            .mobile-auth-section,
+            .mobile-contact-section {
+                margin-bottom: 30px;
             }
 
             .mobile-link {
-                display: block;
-                padding: 16px 0;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 14px 16px;
                 color: #cbd5e1;
                 text-decoration: none;
                 font-family: 'Montserrat', sans-serif;
-                font-size: 16px;
+                font-size: 15px;
                 font-weight: 500;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                transition: color 0.2s;
+                border-radius: 10px;
+                transition: all 0.2s;
+                margin-bottom: 4px;
+            }
+
+            .mobile-link i {
+                width: 20px;
+                color: #ff3c00;
+                font-size: 16px;
             }
 
             .mobile-link:hover,
             .mobile-link.active {
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
+                transform: translateX(5px);
+            }
+
+            /* Category Grid */
+            .mobile-category-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .mobile-category-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                padding: 16px 10px;
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 12px;
+                color: #cbd5e1;
+                text-decoration: none;
+                transition: all 0.2s;
+                text-align: center;
+            }
+
+            .mobile-category-item i {
+                font-size: 24px;
                 color: #ff3c00;
             }
 
-            .mobile-auth {
-                margin-top: 30px;
-                padding-top: 20px;
-                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            .mobile-category-item span {
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .mobile-category-item:hover {
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
+                transform: translateY(-2px);
+            }
+
+            /* Mobile Action Items */
+            .mobile-action-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                width: 100%;
+                padding: 14px 16px;
+                background: rgba(255, 255, 255, 0.03);
+                border: none;
+                border-radius: 10px;
+                color: #cbd5e1;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.2s;
+                margin-bottom: 8px;
+            }
+
+            .mobile-action-item i {
+                width: 20px;
+                color: #ff3c00;
+                font-size: 16px;
+            }
+
+            .mobile-action-item:hover {
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
+                transform: translateX(5px);
+            }
+
+            .mobile-cart-badge {
+                background: #ff3c00;
+                color: white;
+                font-size: 11px;
+                font-weight: 700;
+                padding: 2px 8px;
+                border-radius: 12px;
+                margin-left: auto;
             }
 
             /* Mobile User Info */
@@ -975,6 +1193,13 @@ class HeaderManager {
                 font-size: 15px;
                 cursor: pointer;
                 transition: all 0.2s;
+                width: 100%;
+                text-align: left;
+            }
+
+            .mobile-user-link i {
+                width: 20px;
+                color: #ff3c00;
             }
 
             .mobile-user-link:hover {
@@ -1027,6 +1252,55 @@ class HeaderManager {
 
             .mobile-register-link:hover {
                 color: #ff3c00;
+            }
+
+            /* Mobile Contact Section */
+            .mobile-contact-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 16px;
+                color: #cbd5e1;
+                text-decoration: none;
+                font-size: 14px;
+                border-radius: 10px;
+                transition: all 0.2s;
+                margin-bottom: 4px;
+            }
+
+            .mobile-contact-item i {
+                width: 20px;
+                color: #ff3c00;
+            }
+
+            .mobile-contact-item:hover {
+                background: rgba(255, 60, 0, 0.1);
+                color: #ff3c00;
+            }
+
+            .mobile-social-icons {
+                display: flex;
+                gap: 12px;
+                margin-top: 16px;
+                padding: 0 16px;
+            }
+
+            .social-icon {
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.05);
+                color: #cbd5e1;
+                border-radius: 50%;
+                transition: all 0.2s;
+            }
+
+            .social-icon:hover {
+                background: rgba(255, 60, 0, 0.2);
+                color: #ff3c00;
+                transform: translateY(-2px);
             }
 
             /* Search Overlay */
@@ -1293,6 +1567,31 @@ class HeaderManager {
                 .mobile-toggle {
                     width: 40px;
                     height: 40px;
+                }
+
+                .mobile-menu {
+                    max-width: 100%;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .mobile-category-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Ensure content doesn't hide behind fixed header */
+            body {
+                padding-top: 64px;
+                margin: 0;
+                font-family: 'Montserrat', sans-serif;
+                background: #0a0f1a;
+                color: white;
+            }
+
+            @media (max-width: 768px) {
+                body {
+                    padding-top: 60px;
                 }
             }
         `;
