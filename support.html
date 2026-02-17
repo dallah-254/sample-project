@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightHub Customs | Support & Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="header-footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3c00;
+            --primary-dark: #cc3000;
+            --primary-light: #ff6b3d;
+            --primary-rgb: 255, 60, 0;
+            --secondary: #111827;
+            --secondary-light: #1f2937;
+            --accent: #00a8ff;
+            --dark: #0f172a;
+            --darker: #0a0f1a;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #cbd5e1;
+            --gray-dark: #475569;
+            --card-bg: #1e293b;
+            --card-bg-light: #2d3748;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.35);
+            --shadow-light: 0 5px 15px rgba(255, 60, 0, 0.15);
+            --shadow-hover: 0 15px 30px rgba(255, 60, 0, 0.25);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-lg: 16px;
+            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --transition-slow: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--light);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--secondary) 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(255, 60, 0, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .main-content {
+            flex: 1;
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6, .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(255, 60, 0, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 60, 0, 0.3);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 60, 0, 0.2);
+            z-index: -1;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .section-title-left {
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-title-left::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .btn-outline::before {
+            display: none;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+
+        .btn-lg {
+            padding: 16px 32px;
+            font-size: 16px;
+        }
+
+        .btn-icon {
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 60, 0, 0.2);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Hero Section */
+        .support-hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(10, 15, 26, 0.97) 0%, rgba(17, 24, 39, 0.95) 100%),
+                        url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .support-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 60, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .emergency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            font-weight: 600;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .emergency-badge i {
+            animation: bell 1s infinite;
+        }
+
+        @keyframes bell {
+            0%, 100% { transform: rotate(0); }
+            20%, 60% { transform: rotate(15deg); }
+            40%, 80% { transform: rotate(-15deg); }
+        }
+
+        .hero-title {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .hero-text {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .quick-contact {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-chip:hover {
+            background: rgba(255, 60, 0, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .contact-chip i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .contact-chip span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .support-hours {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .hours-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Search Section */
+        .search-section {
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 10px;
+            background: var(--card-bg);
+            border-radius: 60px;
+            padding: 5px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 18px 25px;
+            color: var(--light);
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border: none;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 20px;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .popular-searches {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            color: var(--gray);
+            font-size: 13px;
+            flex-wrap: wrap;
+        }
+
+        .search-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .search-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .search-tag:hover {
+            background: rgba(255, 60, 0, 0.1);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Help Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 60, 0, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .topic-card:hover::before {
+            opacity: 1;
+        }
+
+        .topic-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(255, 60, 0, 0.1), rgba(255, 60, 0, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 60, 0, 0.3);
+        }
+
+        .topic-card:hover .topic-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .topic-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .topic-desc {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .topic-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .topic-link:hover {
+            gap: 10px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: linear-gradient(135deg, var(--darker) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-content {
+            position: relative;
+        }
+
+        .about-badge {
+            display: inline-block;
+            background: rgba(255, 60, 0, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 60, 0, 0.3);
+        }
+
+        .about-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-highlight {
+            color: var(--primary);
+        }
+
+        .about-text {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 10px 15px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .value-item i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .value-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .grid-img {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .grid-img:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .grid-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .grid-img.large {
+            grid-column: span 2;
+        }
+
+        .grid-img.large img {
+            height: 250px;
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 25px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .experience-badge .years {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .experience-badge .text {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .blog-meta i {
+            color: var(--primary);
+            margin-right: 5px;
+        }
+
+        .blog-title {
+            font-size: 20px;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .blog-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        .blog-stats {
+            display: flex;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contact-method {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 60, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .contact-method:hover .method-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: rotate(360deg);
+        }
+
+        .method-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .method-detail {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .method-action {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .location-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .location-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 60, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .location-name {
+            font-size: 18px;
+        }
+
+        .location-address {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .location-hours {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .location-hours i {
+            color: var(--primary);
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        .map-container {
+            height: 150px;
+            background: var(--secondary-light);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-light);
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            color: var(--light);
+            font-size: 14px;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 60, 0, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 60, 0, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .form-check input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .form-check label {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .form-check a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .faq-category {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-category-title i {
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            padding: 0 0 15px;
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .resource-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 60, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover .resource-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .resource-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .resource-desc {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .resource-link:hover {
+            gap: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 60px;
+            color: rgba(255, 60, 0, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transform: rotate(20deg);
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .newsletter-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 16px 25px;
+            color: white;
+            font-size: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .newsletter-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            padding: 0 35px;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            border: none;
+            animation: pulse-shadow 2s infinite;
+        }
+
+        @keyframes pulse-shadow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 60, 0, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(255, 60, 0, 0); }
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .chat-status {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--success);
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .chat-popup {
+            position: absolute;
+            bottom: 90px;
+            right: 0;
+            width: 350px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            display: none;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-popup.show {
+            display: block;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 20px;
+            color: white;
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .chat-messages {
+            height: 250px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+        }
+
+        .message-support {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .support-avatar {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            background: var(--secondary-light);
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 5px;
+            max-width: 80%;
+            font-size: 13px;
+        }
+
+        .message-user {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .message-user .message-content {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 18px 18px 5px 18px;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: var(--secondary-light);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 10px 15px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .chat-send {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-send:hover {
+            transform: scale(1.1);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 20px 0;
+            background: transparent;
+        }
+
+        .breadcrumb-list {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            font-size: 13px;
+        }
+
+        .breadcrumb-item a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--primary);
+        }
+
+        .breadcrumb-separator {
+            color: var(--gray);
+            font-size: 10px;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Loading States */
+        .loading-skeleton {
+            background: linear-gradient(90deg, var(--card-bg) 25%, var(--card-bg-light) 50%, var(--card-bg) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: var(--radius);
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .about-grid {
+                gap: 30px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .newsletter-section {
+                padding: 40px 30px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding-top: 70px;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .quick-contact {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-chip {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-wrapper {
+                flex-direction: column;
+                background: transparent;
+                gap: 10px;
+            }
+            
+            .search-input {
+                background: var(--card-bg);
+                border-radius: 50px;
+            }
+            
+            .search-btn {
+                width: 100%;
+                border-radius: 50px;
+            }
+            
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-slider {
+                grid-template-columns: 1fr;
+            }
+            
+            .chat-popup {
+                width: 300px;
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .experience-badge {
+                width: 80px;
+                height: 80px;
+                padding: 15px;
+                bottom: -10px;
+                right: -10px;
+            }
+            
+            .experience-badge .years {
+                font-size: 24px;
+            }
+            
+            .experience-badge .text {
+                font-size: 10px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-section {
+                padding: 30px 20px;
+            }
+            
+            .newsletter-title {
+                font-size: 24px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                left: 20px;
+            }
+            
+            .chat-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-button {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main-content">
+        <!-- Breadcrumbs -->
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+                <li class="breadcrumb-item active">Support & Resources</li>
+            </ul>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="support-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="emergency-badge">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>24/7 Emergency Support Available</span>
+                    </div>
+                    
+                    <h1 class="hero-title">How Can We <span>Help</span> You Today?</h1>
+                    <p class="hero-text">Get instant support, expert advice, and comprehensive resources for all your lighting needs</p>
+                    
+                    <div class="quick-contact">
+                        <a href="tel:+18005551234" class="contact-chip">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>1-800-555-1234</span>
+                        </a>
+                        <a href="mailto:support@lighthubcustoms.com" class="contact-chip">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@lighthubcustoms.com</span>
+                        </a>
+                        <a href="#" class="contact-chip" onclick="openChat()">
+                            <i class="fas fa-comment-dots"></i>
+                            <span>Live Chat</span>
+                        </a>
+                    </div>
+                    
+                    <div class="support-hours">
+                        <div class="hours-indicator">
+                            <span class="status-dot"></span>
+                            <span>Support Team Online</span>
+                        </div>
+                        <span>|</span>
+                        <span>Mon-Fri: 24/7 | Sat-Sun: 8AM-8PM EST</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <input type="text" class="search-input" placeholder="Search for help articles, tutorials, FAQs..." id="searchInput">
+                        <button class="search-btn" onclick="searchHelp()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="popular-searches">
+                        <span>Popular:</span>
+                        <div class="search-tags">
+                            <a href="#" class="search-tag" onclick="searchTag('installation')">Installation Guide</a>
+                            <a href="#" class="search-tag" onclick="searchTag('warranty')">Warranty</a>
+                            <a href="#" class="search-tag" onclick="searchTag('troubleshooting')">Troubleshooting</a>
+                            <a href="#" class="search-tag" onclick="searchTag('returns')">Returns</a>
+                            <a href="#" class="search-tag" onclick="searchTag('headlights')">Headlights</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Help Topics -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Quick Help</span>
+                    <h2 class="section-title">Popular <span>Help Topics</span></h2>
+                    <p class="section-subtitle">Find answers to the most common questions and issues</p>
+                </div>
+
+                <div class="topics-grid">
+                    <div class="topic-card" onclick="window.location.href='#installation-guides'">
+                        <div class="topic-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="topic-title">Installation Guides</h3>
+                        <p class="topic-desc">Step-by-step instructions for all our products</p>
+                        <span class="topic-link">View Guides <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#troubleshooting'">
+                        <div class="topic-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3 class="topic-title">Troubleshooting</h3>
+                        <p class="topic-desc">Solve common issues and problems</p>
+                        <span class="topic-link">Get Help <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#warranty'">
+                        <div class="topic-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="topic-title">Warranty Info</h3>
+                        <p class="topic-desc">Check warranty status and coverage</p>
+                        <span class="topic-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#returns'">
+                        <div class="topic-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3 class="topic-title">Returns & Exchanges</h3>
+                        <p class="topic-desc">Easy return process and policies</p>
+                        <span class="topic-link">Start Return <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#shipping'">
+                        <div class="topic-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="topic-title">Shipping Info</h3>
+                        <p class="topic-desc">Track orders and delivery times</p>
+                        <span class="topic-link">Track Order <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#product-support'">
+                        <div class="topic-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="topic-title">Product Support</h3>
+                        <p class="topic-desc">Specific product help and manuals</p>
+                        <span class="topic-link">Find Product <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#compatibility'">
+                        <div class="topic-icon">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <h3 class="topic-title">Compatibility Check</h3>
+                        <p class="topic-desc">Verify parts fit your vehicle</p>
+                        <span class="topic-link">Check Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+
+                    <div class="topic-card" onclick="window.location.href='#videos'">
+                        <div class="topic-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3 class="topic-title">Video Tutorials</h3>
+                        <p class="topic-desc">Watch step-by-step video guides</p>
+                        <span class="topic-link">Watch Now <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Who We Are</span>
+                    <h2 class="section-title">About <span>LightHub Customs</span></h2>
+                    <p class="section-subtitle">Illuminating the road ahead with premium automotive lighting since 2015</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content">
+                        <div class="about-badge">Our Story</div>
+                        <h3 class="about-title">Pioneers in <span class="about-highlight">Automotive Lighting</span> Innovation</h3>
+                        
+                        <p class="about-text">
+                            Founded in 2015 by automotive enthusiasts, LightHub Customs started as a small garage project and grew into one of the most trusted names in aftermarket vehicle lighting. Our passion for perfect illumination and cutting-edge design drives us to create products that not only look exceptional but also enhance safety and performance.
+                        </p>
+                        
+                        <p class="about-text">
+                            Today, we serve thousands of customers worldwide, from weekend warriors to professional race teams, providing them with the highest quality LED lighting solutions. Every product we sell undergoes rigorous testing to ensure it meets our exacting standards for durability, brightness, and reliability.
+                        </p>
+
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">50k+</div>
+                                <div class="stat-label">Happy Customers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Products</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Support</div>
+                            </div>
+                        </div>
+
+                        <div class="values-list">
+                            <div class="value-item">
+                                <i class="fas fa-medal"></i>
+                                <span>Premium Quality</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-heart"></i>
+                                <span>Customer First</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Innovation</span>
+                            </div>
+                            <div class="value-item">
+                                <i class="fas fa-handshake"></i>
+                                <span>Integrity</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-image">
+                        <div class="image-grid">
+                            <div class="grid-img">
+                                <img src="https://images.unsplash.com/photo-1567808295885-914b6bcb7448?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Our workshop">
+                            </div>
+                            <div class="grid-img">
+                                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="LED installation">
+                            </div>
+                            <div class="grid-img large">
+                                <img src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Custom headlights">
+                            </div>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="years">10+</span>
+                            <span class="text">Years of Excellence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog & Tips Section -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Blog & Tips</span>
+                    <h2 class="section-title">Latest <span>Guides & Articles</span></h2>
+                    <p class="section-subtitle">Expert advice, installation tips, and industry insights</p>
+                </div>
+
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1595449864987-ff22cd6f2a52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Installation">
+                            <span class="blog-category">Installation</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Mar 15, 2024</span>
+                                <span><i class="far fa-clock"></i> 8 min read</span>
+                            </div>
+                            <h3 class="blog-title">Complete Guide to LED Headlight Installation</h3>
+                            <p class="blog-excerpt">Learn everything you need to know about installing LED headlights in your vehicle, from tools required to step-by-step instructions...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 234</span>
+                                    <span><i class="far fa-comment"></i> 45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Troubleshooting">
+                            <span class="blog-category">Troubleshooting</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Mar 10, 2024</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3 class="blog-title">Common LED Light Problems and Fixes</h3>
+                            <p class="blog-excerpt">Having issues with your LED lights? Here's a comprehensive guide to diagnosing and fixing the most common problems...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 189</span>
+                                    <span><i class="far fa-comment"></i> 32</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1558979159-2b18a4070a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maintenance">
+                            <span class="blog-category">Maintenance</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Mar 5, 2024</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3 class="blog-title">How to Maintain Your LED Lights for Long Life</h3>
+                            <p class="blog-excerpt">Proper maintenance can extend the life of your LED lights significantly. Follow these tips to keep them shining bright...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 156</span>
+                                    <span><i class="far fa-comment"></i> 28</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Product Review">
+                            <span class="blog-category">Reviews</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Feb 28, 2024</span>
+                                <span><i class="far fa-clock"></i> 10 min read</span>
+                            </div>
+                            <h3 class="blog-title">Top 10 LED Headlights for 2024</h3>
+                            <p class="blog-excerpt">We've tested dozens of LED headlights to bring you the definitive list of the best options for every budget and vehicle type...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 412</span>
+                                    <span><i class="far fa-comment"></i> 67</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Compatibility">
+                            <span class="blog-category">Compatibility</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Feb 20, 2024</span>
+                                <span><i class="far fa-clock"></i> 7 min read</span>
+                            </div>
+                            <h3 class="blog-title">Understanding LED Bulb Sizes and Fitments</h3>
+                            <p class="blog-excerpt">Confused about bulb sizes? This guide explains everything you need to know about H-series, 9000-series, and other common fitments...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 203</span>
+                                    <span><i class="far fa-comment"></i> 41</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1567808295885-914b6bcb7448?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wiring">
+                            <span class="blog-category">Electrical</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Feb 15, 2024</span>
+                                <span><i class="far fa-clock"></i> 9 min read</span>
+                            </div>
+                            <h3 class="blog-title">LED Wiring 101: Everything You Need to Know</h3>
+                            <p class="blog-excerpt">From basic circuits to advanced wiring techniques, this comprehensive guide covers everything about LED electrical systems...</p>
+                            <div class="blog-footer">
+                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                <div class="blog-stats">
+                                    <span><i class="far fa-heart"></i> 278</span>
+                                    <span><i class="far fa-comment"></i> 53</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas

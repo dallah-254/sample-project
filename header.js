@@ -99,7 +99,6 @@ class HeaderManager {
                     <nav class="header-nav">
                         <a href="/" class="nav-link" data-path="/">Home</a>
                         <a href="/products" class="nav-link" data-path="/products">Products</a>
-                        <a href="/categories" class="nav-link" data-path="/categories">Categories</a>
                         <a href="/custom" class="nav-link" data-path="/custom">Custom Build</a>
                         <a href="/support" class="nav-link" data-path="/support">Support</a>
                     </nav>
